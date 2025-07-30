@@ -1,0 +1,54 @@
+{
+  "frame_width": 37,
+  "frame_height": 28,
+  "animations": [
+    {
+      "name": "attack",
+      "frames": [0, 7, 14, 21],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "name": "jump",
+      "frames": [1, 8, 15, 22, 29, 29, 29],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "name": "flight",
+      "frames": [2, 9, 16, 23, 30, 37, 30, 37, 3, 3, 3, 4],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "name": "flying",
+      "frames": [11, 18, 25],
+      "fps": 10,
+      "loop": true
+    },
+    {
+      "name": "flyingattack",
+      "frames": [25, 5, 12],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "name": "flyingtacckle1",
+      "frames": [6, 13, 6, 13, 20, 20, 20],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "name": "flyingtacckle2",
+      "frames": [10, 17, 10, 17, 55, 55, 55],
+      "fps": 5,
+      "loop": false
+    },
+    {
+      "name": "rolling",
+      "frames": [25, 6, 20, 27, 34, 41, 20],
+      "fps": 10,
+      "loop": true
+    }
+  ]
+}
