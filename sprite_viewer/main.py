@@ -16,7 +16,7 @@ def load_data(base_name):
 
     if not os.path.exists(json_path) or not os.path.exists(image_path):
         print(f"Error: '{json_path}' または '{image_path}' が見つかりません。")
-        sys.exit(1)
+        raise FileNotFoundError(f"'{json_path}' or '{image_path}' not found.")
 
     with open(json_path) as f:
         data = json.load(f)
