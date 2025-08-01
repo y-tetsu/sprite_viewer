@@ -21,6 +21,7 @@ Great for checking retro-style animations (like NES/Famicom) during development.
 - Minimal UI with helpful animation info
 - Automatically resizes window to fit sprite
 - Configurable via command line
+- Export current animation as GIF
 
 ---
 
@@ -53,10 +54,12 @@ Great for checking retro-style animations (like NES/Famicom) during development.
 ### 🔧 Requirements
 - Python 3.x
 - pygame library
+- Pillow library
 
 Install pygame:
 ```bash
 pip install pygame
+pip install pillow
 ```
 
 ### ▶️ Usage
@@ -83,7 +86,18 @@ python sprite_viewer.py [basename] [--scale N] [--bg #RRGGBB] [--size WxH] [--bo
 [Zoom  ]  + / -        : Change scale
 [View  ]  H / V / L    : Flip horizontal / vertical / toggle loop
           SPACE        : Pause / resume
+[Export] G             : Save current animation as GIF
 ```
+
+📤 GIF Export:
+
+- Press `G` to export the currently displayed animation to a GIF file named `<animation_name>.gif`
+- The export respects current settings such as FPS, scale, flipping (H/V), and loop
+- Output will be saved to the current working directory
+- Requires the [`Pillow`](https://pypi.org/project/Pillow/) library
+- Borders between frames are automatically excluded during GIF export
+
+<img src="exported.gif" width="20%">
 
 ---
 

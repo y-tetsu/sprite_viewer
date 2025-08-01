@@ -3,10 +3,11 @@ import json
 import sys
 import os
 import argparse
+from PIL import Image
 
 INFO_MARGIN_LEFT = 180
-MIN_SCREEN_WIDTH = 300
-MIN_SCREEN_HEIGHT = 300
+MIN_SCREEN_WIDTH = 320
+MIN_SCREEN_HEIGHT = 320
 SCALE_MIN = 1
 SCALE_MAX = 12
 
@@ -42,6 +43,34 @@ def parse_size(s):
         w, h = s.lower().split('x')
         return int(w), int(h)
     raise ValueError(f"Invalid size format: {s} (例: 800x600)")
+
+def export_gif(anim_name, anim_info, sheet, fw, fh, columns, scale, border, flip_x, flip_y, fps):
+    frames = []
+    for idx in anim_info["frames"]:
+        x = (idx % columns) * fw
+        y = (idx // columns) * fh
+        frame = sheet.subsurface(pygame.Rect(x + border, y + border, fw - border, fh - border))
+        if scale != 1:
+            frame = pygame.transform.scale(frame, ((fw - border) * scale, (fh - border) * scale))
+        if flip_x or flip_y:
+            frame = pygame.transform.flip(frame, flip_x, flip_y)
+        pil_image = Image.frombytes("RGBA", frame.get_size(), pygame.image.tostring(frame, "RGBA"))
+        frames.append(pil_image)
+
+    if frames:
+        duration = int(1000 / fps)
+        frames[0].save(
+            f"{anim_name}.gif",
+            save_all=True,
+            append_images=frames[1:],
+            duration=duration,
+            loop=0,
+            transparency=0,
+            disposal=2
+        )
+        print(f"[OK] Exported: {anim_name}.gif")
+    else:
+        print("[ERROR] No frames to export.")
 
 def main(spritesheet="spritesheet", scale=6, bg_color=(50, 50, 50), screen_size=None, border=1):
     pygame.init()
@@ -137,6 +166,8 @@ def main(spritesheet="spritesheet", scale=6, bg_color=(50, 50, 50), screen_size=
                     anim = prepare_animation(current_animation)
                 elif event.key == pygame.K_SPACE:
                     paused = not paused
+                elif event.key == pygame.K_g:
+                    export_gif(anim['name'], animations[current_animation], sheet, fw, fh, columns, scale, border, flip_x, flip_y, anim["fps"])
 
         if not paused:
             anim["time_acc"] += dt
@@ -180,7 +211,8 @@ def main(spritesheet="spritesheet", scale=6, bg_color=(50, 50, 50), screen_size=
             "[Frame ] Left / Right",
             "[Speed ] Up / Down",
             "[Zoom  ] + / -",
-            "[View  ] H / V / L / SPACE"
+            "[View  ] H / V / L / SPACE",
+            "[Export] G"
         ]
 
         for i, line in enumerate(info_lines):
