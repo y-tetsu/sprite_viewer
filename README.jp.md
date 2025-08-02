@@ -32,6 +32,7 @@
 {
   "frame_width": 16,
   "frame_height": 16,
+  "border": 1,
   "animations": [
     {
       "name": "walk",
@@ -65,7 +66,7 @@ pip install pillow
 
 ### ▶️ 実行コマンド
 ```bash
-python sprite_viewer.py [ベース名] [--scale N] [--bg #RRGGBB] [--size WxH] [--border N]
+python sprite_viewer.py [ベース名] [--scale N] [--bg #RRGGBB] [--size WxH]
 ```
 
 📘 オプション一覧:
@@ -75,7 +76,6 @@ python sprite_viewer.py [ベース名] [--scale N] [--bg #RRGGBB] [--size WxH] [
 | `--scale`  | 表示倍率（ズーム）                                                   | `6`             |
 | `--bg`     | 背景色（16進カラーコード）                                              | `#323232`       |
 | `--size`   | ウィンドウサイズ（例：`800x600`）                                       | 自動調整            |
-| `--border` | フレーム間の境界線幅（ピクセル）                                            | `1`             |
 
 ---
 

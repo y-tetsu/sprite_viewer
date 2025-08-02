@@ -72,13 +72,14 @@ def export_gif(anim_name, anim_info, sheet, fw, fh, columns, scale, border, flip
     else:
         print("[ERROR] No frames to export.")
 
-def main(spritesheet="spritesheet", scale=6, bg_color=(50, 50, 50), screen_size=None, border=1):
+def main(spritesheet="spritesheet", scale=6, bg_color=(50, 50, 50), screen_size=None):
     pygame.init()
     pygame.display.set_mode((1, 1))
 
     data, sheet = load_data(spritesheet)
     frame_width = data["frame_width"]
     frame_height = data["frame_height"]
+    border = data["border"]
     fw, fh = frame_width + border, frame_height + border
     columns = sheet.get_width() // fw
 
@@ -230,7 +231,6 @@ if __name__ == "__main__":
     parser.add_argument("--scale", type=int, default=6, help="表示倍率（例: 4）")
     parser.add_argument("--bg", type=str, default="#323232", help="背景色（例: #000000）")
     parser.add_argument("--size", type=str, help="画面サイズ（例: 800x600）")
-    parser.add_argument("--border", type=int, default=1, help="各フレーム間の枠線幅（ピクセル、デフォルト: 1）")
 
     args = parser.parse_args()
 
@@ -246,6 +246,5 @@ if __name__ == "__main__":
         scale=args.scale,
         bg_color=bg_color,
         screen_size=screen_size,
-        border=args.border
     )
 

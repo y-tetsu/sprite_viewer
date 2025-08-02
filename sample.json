@@ -1,6 +1,7 @@
 {
   "frame_width": 37,
   "frame_height": 28,
+  "border": 1,
   "animations": [
     {
       "name": "attack",

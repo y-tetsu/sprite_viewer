@@ -31,6 +31,7 @@ Great for checking retro-style animations (like NES/Famicom) during development.
 {
   "frame_width": 16,
   "frame_height": 16,
+  "border": 1,
   "animations": [
     {
       "name": "walk",
@@ -64,7 +65,7 @@ pip install pillow
 
 ### ▶️ Usage
 ```bash
-python sprite_viewer.py [basename] [--scale N] [--bg #RRGGBB] [--size WxH] [--border N]
+python sprite_viewer.py [basename] [--scale N] [--bg #RRGGBB] [--size WxH]
 ```
 
 #### 📘 Arguments:
@@ -74,7 +75,6 @@ python sprite_viewer.py [basename] [--scale N] [--bg #RRGGBB] [--size WxH] [--bo
 | `--scale`  | Display scale (zoom)                                            | `6`             |
 | `--bg`     | Background color (hex)                                          | `#323232`       |
 | `--size`   | Window size (e.g., `800x600`)                                   | auto fit        |
-| `--border` | Border between frames (in pixels)                               | `1`             |
 
 
 ### 🎮 Controls
