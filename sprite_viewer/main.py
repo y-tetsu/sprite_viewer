@@ -73,7 +73,7 @@ def export_gif(anim_name, anim_info, sheet, fw, fh, columns, scale, border, flip
     else:
         print("[ERROR] No frames to export.")
 
-def main(json_path, scale=6, bg_color=(50, 50, 50), screen_size=None):
+def run_viewer(json_path, scale=6, bg_color=(50, 50, 50), screen_size=None):
     pygame.init()
     pygame.display.set_mode((1, 1))
 
@@ -226,12 +226,16 @@ def main(json_path, scale=6, bg_color=(50, 50, 50), screen_size=None):
     pygame.quit()
     sys.exit()
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Sprite animation viewer")
-    parser.add_argument("json_path", help="Path to the animation definition JSON file (e.g., anim.json)")
-    parser.add_argument("--scale", type=int, default=6, help="Display scale factor (e.g., 4)")
+
+def main():
+    import argparse
+    import sys
+
+    parser = argparse.ArgumentParser(description="Sprite Animation Viewer")
+    parser.add_argument("json_file", help="Path to animation definition JSON file (e.g., anim.json)")
+    parser.add_argument("--scale", type=int, default=6, help="Display scale (e.g., 4)")
     parser.add_argument("--bg", type=str, default="#323232", help="Background color (hex format, e.g., #000000)")
-    parser.add_argument("--size", type=str, help="Window size (e.g., 800x600)")
+    parser.add_argument("--size", type=str, help="Screen size (e.g., 800x600)")
 
     args = parser.parse_args()
 
@@ -242,10 +246,13 @@ if __name__ == "__main__":
         print("Argument error:", e)
         sys.exit(1)
 
-    main(
-        json_path=args.json_path,
+    run_viewer(
+        json_path=args.json_file,
         scale=args.scale,
         bg_color=bg_color,
         screen_size=screen_size,
     )
 
+
+if __name__ == "__main__":
+    main()
