@@ -30,6 +30,7 @@
 
 ```json
 {
+  "image_path": "sample.png",
   "frame_width": 16,
   "frame_height": 16,
   "border": 1,
@@ -66,13 +67,13 @@ pip install pillow
 
 ### ▶️ 実行コマンド
 ```bash
-python sprite_viewer.py [ベース名] [--scale N] [--bg #RRGGBB] [--size WxH]
+python sprite_viewer.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 ```
 
 📘 オプション一覧:
 | オプション      | 内容                                                          | デフォルト値          |
 | ---------- | ----------------------------------------------------------- | --------------- |
-| `ベース名`     | 読み込むファイルのプレフィックス名（例：`sample` → `sample.png`, `sample.json`） | `"spritesheet"` |
+| json_path     | アニメーション定義JSONファイルのパス（例：`sample.json`）| （必須）|
 | `--scale`  | 表示倍率（ズーム）                                                   | `6`             |
 | `--bg`     | 背景色（16進カラーコード）                                              | `#323232`       |
 | `--size`   | ウィンドウサイズ（例：`800x600`）                                       | 自動調整            |

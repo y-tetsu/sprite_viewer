@@ -29,6 +29,7 @@ Great for checking retro-style animations (like NES/Famicom) during development.
 
 ```json
 {
+  "image_path": "sample.png",
   "frame_width": 16,
   "frame_height": 16,
   "border": 1,
@@ -65,13 +66,13 @@ pip install pillow
 
 ### ▶️ Usage
 ```bash
-python sprite_viewer.py [basename] [--scale N] [--bg #RRGGBB] [--size WxH]
+python sprite_viewer.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 ```
 
 #### 📘 Arguments:
 | Option     | Description                                                     | Default         |
 | ---------- | --------------------------------------------------------------- | --------------- |
-| `basename` | File name prefix (e.g., `sample` → `sample.png`, `sample.json`) | `"spritesheet"` |
+| json_path | Path to the animation JSON file (e.g. `sample.json`) | (required) |
 | `--scale`  | Display scale (zoom)                                            | `6`             |
 | `--bg`     | Background color (hex)                                          | `#323232`       |
 | `--size`   | Window size (e.g., `800x600`)                                   | auto fit        |

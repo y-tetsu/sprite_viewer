@@ -11,16 +11,17 @@ MIN_SCREEN_HEIGHT = 320
 SCALE_MIN = 1
 SCALE_MAX = 12
 
-def load_data(base_name):
-    json_path = base_name + ".json"
-    image_path = base_name + ".png"
+def load_data(json_path):
+    if not os.path.exists(json_path):
+        raise FileNotFoundError(f"JSON file not found: {json_path}")
 
-    if not os.path.exists(json_path) or not os.path.exists(image_path):
-        print(f"Error: '{json_path}' または '{image_path}' が見つかりません。")
-        raise FileNotFoundError(f"'{json_path}' or '{image_path}' not found.")
-
-    with open(json_path) as f:
+    with open(json_path, "r") as f:
         data = json.load(f)
+
+    image_path = data.get("image_path")
+    if not image_path or not os.path.exists(image_path):
+        raise FileNotFoundError(f"Image file not found or not specified in JSON: {image_path}")
+
     image = pygame.image.load(image_path).convert_alpha()
     return data, image
 
@@ -42,7 +43,7 @@ def parse_size(s):
     if 'x' in s:
         w, h = s.lower().split('x')
         return int(w), int(h)
-    raise ValueError(f"Invalid size format: {s} (例: 800x600)")
+    raise ValueError(f"Invalid size format: {s} (e.g., 800x600)")
 
 def export_gif(anim_name, anim_info, sheet, fw, fh, columns, scale, border, flip_x, flip_y, fps):
     frames = []
@@ -72,11 +73,11 @@ def export_gif(anim_name, anim_info, sheet, fw, fh, columns, scale, border, flip
     else:
         print("[ERROR] No frames to export.")
 
-def main(spritesheet="spritesheet", scale=6, bg_color=(50, 50, 50), screen_size=None):
+def main(json_path, scale=6, bg_color=(50, 50, 50), screen_size=None):
     pygame.init()
     pygame.display.set_mode((1, 1))
 
-    data, sheet = load_data(spritesheet)
+    data, sheet = load_data(json_path)
     frame_width = data["frame_width"]
     frame_height = data["frame_height"]
     border = data["border"]
@@ -226,11 +227,11 @@ def main(spritesheet="spritesheet", scale=6, bg_color=(50, 50, 50), screen_size=
     sys.exit()
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="スプライトアニメーションビューワ")
-    parser.add_argument("spritesheet", nargs="?", default="spritesheet", help="スプライトシートのベース名（拡張子なし）")
-    parser.add_argument("--scale", type=int, default=6, help="表示倍率（例: 4）")
-    parser.add_argument("--bg", type=str, default="#323232", help="背景色（例: #000000）")
-    parser.add_argument("--size", type=str, help="画面サイズ（例: 800x600）")
+    parser = argparse.ArgumentParser(description="Sprite animation viewer")
+    parser.add_argument("json_path", help="Path to the animation definition JSON file (e.g., anim.json)")
+    parser.add_argument("--scale", type=int, default=6, help="Display scale factor (e.g., 4)")
+    parser.add_argument("--bg", type=str, default="#323232", help="Background color (hex format, e.g., #000000)")
+    parser.add_argument("--size", type=str, help="Window size (e.g., 800x600)")
 
     args = parser.parse_args()
 
@@ -238,11 +239,11 @@ if __name__ == "__main__":
         bg_color = parse_color(args.bg)
         screen_size = parse_size(args.size) if args.size else None
     except ValueError as e:
-        print("引数エラー:", e)
+        print("Argument error:", e)
         sys.exit(1)
 
     main(
-        spritesheet=args.spritesheet,
+        json_path=args.json_path,
         scale=args.scale,
         bg_color=bg_color,
         screen_size=screen_size,
