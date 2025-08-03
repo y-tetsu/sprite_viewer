@@ -1,3 +1,7 @@
+<img src="sprite_viewer.png" width="45%">
+
+---
+
 [ [English](https://github.com/y-tetsu/sprite_viewer/blob/main/README.md) | [日本語](https://github.com/y-tetsu/sprite_viewer/blob/main/README.jp.md)]<br>
 
 # 🎮 Sprite Viewer
