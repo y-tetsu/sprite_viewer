@@ -1,4 +1,4 @@
-<img src="sprite_viewer.png" width="45%">
+<img src="sprite_viewer.png" width="50%">
 
 ---
 
@@ -78,7 +78,7 @@ python sprite_viewer.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 | オプション      | 内容                                                          | デフォルト値          |
 | ---------- | ----------------------------------------------------------- | --------------- |
 | json_path     | アニメーション定義JSONファイルのパス（例：`sample.json`）| （必須）|
-| `--scale`  | 表示倍率（ズーム）                                                   | `6`             |
+| `--scale`  | 表示倍率（ズーム）                                                   | `12`             |
 | `--bg`     | 背景色（16進カラーコード）                                              | `#323232`       |
 | `--size`   | ウィンドウサイズ（例：`800x600`）                                       | 自動調整            |
 

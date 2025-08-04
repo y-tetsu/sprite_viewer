@@ -1,4 +1,4 @@
-<img src="sprite_viewer.png" width="45%">
+<img src="sprite_viewer.png" width="50%">
 
 ---
 
@@ -77,7 +77,7 @@ python sprite_viewer.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 | Option     | Description                                                     | Default         |
 | ---------- | --------------------------------------------------------------- | --------------- |
 | json_path | Path to the animation JSON file (e.g. `sample.json`) | (required) |
-| `--scale`  | Display scale (zoom)                                            | `6`             |
+| `--scale`  | Display scale (zoom)                                            | `12`            |
 | `--bg`     | Background color (hex)                                          | `#323232`       |
 | `--size`   | Window size (e.g., `800x600`)                                   | auto fit        |
 

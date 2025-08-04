@@ -9,7 +9,7 @@ INFO_MARGIN_LEFT = 180
 MIN_SCREEN_WIDTH = 320
 MIN_SCREEN_HEIGHT = 320
 SCALE_MIN = 1
-SCALE_MAX = 12
+SCALE_MAX = 20
 
 def load_data(json_path):
     if not os.path.exists(json_path):
@@ -73,7 +73,7 @@ def export_gif(anim_name, anim_info, sheet, fw, fh, columns, scale, border, flip
     else:
         print("[ERROR] No frames to export.")
 
-def run_viewer(json_path, scale=6, bg_color=(50, 50, 50), screen_size=None):
+def run_viewer(json_path, scale=12, bg_color=(50, 50, 50), screen_size=None):
     pygame.init()
     pygame.display.set_mode((1, 1))
 
@@ -233,7 +233,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="Sprite Animation Viewer")
     parser.add_argument("json_file", help="Path to animation definition JSON file (e.g., anim.json)")
-    parser.add_argument("--scale", type=int, default=6, help="Display scale (e.g., 4)")
+    parser.add_argument("--scale", type=int, default=12, help="Display scale (e.g., 4)")
     parser.add_argument("--bg", type=str, default="#323232", help="Background color (hex format, e.g., #000000)")
     parser.add_argument("--size", type=str, help="Screen size (e.g., 800x600)")
 
