@@ -105,8 +105,7 @@ python sprite_viewer.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 - Requires the [`Pillow`](https://pypi.org/project/Pillow/) library
 - Borders between frames are automatically excluded during GIF export
 
-<img src="exported.gif"><br>
-<img src="exported2.gif">
+<img src="exported.gif"><img src="exported2.gif">
 
 ---
 

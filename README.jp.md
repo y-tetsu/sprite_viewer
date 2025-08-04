@@ -106,8 +106,7 @@ python sprite_viewer.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 - 書き出しには [`Pillow`](https://pypi.org/project/Pillow/) ライブラリが必要です
 - GIF出力時には、フレーム間の境界線（border）は自動的に除外されます
 
-<img src="exported.gif"><br>
-<img src="exported2.gif">
+<img src="exported.gif"><img src="exported2.gif">
 
 ---
 
