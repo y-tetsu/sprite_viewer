@@ -74,6 +74,9 @@ def export_gif(anim_name, anim_info, sheet, fw, fh, columns, scale, border, flip
         print("[ERROR] No frames to export.")
 
 def run_viewer(json_path, scale=18, bg_color=(50, 50, 50), screen_size=None):
+    import os
+    os.environ["SDL_VIDEO_CENTERED"] = "1"
+
     pygame.init()
     pygame.display.set_mode((1, 1))
 
