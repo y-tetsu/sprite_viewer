@@ -10,7 +10,9 @@
 アニメーションの動作確認ができる Pygame 製の簡易ツールです。  
 レトロ風2Dゲーム制作時のチェック用に便利です。
 
-<img src="sample.gif" width="50%"><img src="sample.png" width="30%">
+<img src="sample.gif" width="50%"><br>
+<img src="sample.png"><br>
+<img src="sample2.png">
 
 ---
 
@@ -78,7 +80,7 @@ python sprite_viewer.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 | オプション      | 内容                                                          | デフォルト値          |
 | ---------- | ----------------------------------------------------------- | --------------- |
 | json_path     | アニメーション定義JSONファイルのパス（例：`sample.json`）| （必須）|
-| `--scale`  | 表示倍率（ズーム）                                                   | `12`             |
+| `--scale`  | 表示倍率（ズーム）                                                   | `18`             |
 | `--bg`     | 背景色（16進カラーコード）                                              | `#323232`       |
 | `--size`   | ウィンドウサイズ（例：`800x600`）                                       | 自動調整            |
 
@@ -104,7 +106,8 @@ python sprite_viewer.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 - 書き出しには [`Pillow`](https://pypi.org/project/Pillow/) ライブラリが必要です
 - GIF出力時には、フレーム間の境界線（border）は自動的に除外されます
 
-<img src="exported.gif" width="20%">
+<img src="exported.gif"><br>
+<img src="exported2.gif">
 
 ---
 

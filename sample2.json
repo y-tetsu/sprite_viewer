@@ -1,0 +1,14 @@
+{
+  "image_path": "sample2.png",
+  "frame_width": 50,
+  "frame_height": 25,
+  "border": 1,
+  "animations": [
+    {
+      "name": "stand",
+      "frames": [0, 1, 0, 3, 4, 5, 6, 7, 0, 1],
+      "fps": 8,
+      "loop": true
+    }
+  ]
+}
