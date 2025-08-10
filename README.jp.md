@@ -16,6 +16,7 @@
 <img src="sample3.png"><br>
 <img src="sample4.png"><br>
 <img src="sample5.png"><br>
+<img src="sample6.png"><br>
 
 ---
 
@@ -109,7 +110,7 @@ python run.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 - 書き出しには [`Pillow`](https://pypi.org/project/Pillow/) ライブラリが必要です
 - GIF出力時には、フレーム間の境界線（border）は自動的に除外されます
 
-<img src="exported.gif"><img src="exported2.gif"><img src="exported3.gif"><img src="exported4.gif"><img src="exported5.gif">
+<img src="exported.gif"><img src="exported2.gif"><img src="exported3.gif"><img src="exported4.gif"><img src="exported5.gif"><img src="exported6.gif">
 
 ---
 
