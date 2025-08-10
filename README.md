@@ -14,6 +14,7 @@ Great for checking retro-style animations (like NES/Famicom) during development.
 <img src="sample2.png"><br>
 <img src="sample3.png"><br>
 <img src="sample4.png"><br>
+<img src="sample5.png"><br>
 
 
 ---
@@ -107,7 +108,7 @@ python run.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 - Requires the [`Pillow`](https://pypi.org/project/Pillow/) library
 - Borders between frames are automatically excluded during GIF export
 
-<img src="exported.gif"><img src="exported2.gif"><img src="exported3.gif"><img src="exported4.gif">
+<img src="exported.gif"><img src="exported2.gif"><img src="exported3.gif"><img src="exported4.gif"><img src="exported5.gif">
 
 
 ---
