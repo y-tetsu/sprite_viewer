@@ -236,7 +236,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="Sprite Animation Viewer")
     parser.add_argument("json_file", help="Path to animation definition JSON file (e.g., anim.json)")
-    parser.add_argument("--scale", type=int, default=18, help="Display scale (e.g., 4)")
+    parser.add_argument("--scale", type=int, default=15, help="Display scale (e.g., 4)")
     parser.add_argument("--bg", type=str, default="#323232", help="Background color (hex format, e.g., #000000)")
     parser.add_argument("--size", type=str, help="Screen size (e.g., 800x600)")
 
