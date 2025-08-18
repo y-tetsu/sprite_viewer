@@ -1,4 +1,4 @@
-<img src="sprite_viewer.png" width="70%">
+<img src="images/sprite_viewer.png" width="70%">
 
 ---
 
@@ -9,7 +9,7 @@
 A simple Pygame-based tool for previewing 2D sprite animations from a spritesheet and JSON metadata.  
 Great for checking retro-style animations (like NES/Famicom) during development.
 
-<img src="sample.gif" width="50%"><br>
+<img src="images/sample.gif" width="50%"><br>
 <img src="sample.png"><br>
 <img src="sample2.png"><br>
 <img src="sample3.png"><br>
@@ -111,7 +111,7 @@ python run.py json_path [--scale N] [--bg #RRGGBB] [--size WxH]
 - Requires the [`Pillow`](https://pypi.org/project/Pillow/) library
 - Borders between frames are automatically excluded during GIF export
 
-<img src="exported.gif"><img src="exported2.gif"><img src="exported3.gif"><img src="exported4.gif"><img src="exported5.gif"><img src="exported6.gif"><img src="exported7.gif"><img src="exported8.gif">
+<img src="images/exported.gif"><img src="images/exported2.gif"><img src="images/exported3.gif"><img src="images/exported4.gif"><img src="images/exported5.gif"><img src="images/exported6.gif"><img src="images/exported7.gif"><img src="images/exported8.gif">
 
 
 ---
