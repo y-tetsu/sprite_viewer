@@ -1,1 +1,1 @@
-pyinstaller --onefile --noconsole  --icon=sprite_viewer.ico --name sprite_viewer run.py
+pyinstaller --onefile --noconsole  --icon=images\sprite_viewer.ico --name sprite_viewer run.py
