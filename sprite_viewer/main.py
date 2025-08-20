@@ -78,6 +78,11 @@ def run_viewer(json_path, scale=18, bg_color=(50, 50, 50), screen_size=None):
     os.environ["SDL_VIDEO_CENTERED"] = "1"
 
     pygame.init()
+
+    info = pygame.display.Info()
+    screen_width = info.current_w
+    screen_height = info.current_h
+
     pygame.display.set_mode((1, 1))
 
     data, sheet = load_data(json_path)
@@ -96,6 +101,9 @@ def run_viewer(json_path, scale=18, bg_color=(50, 50, 50), screen_size=None):
 
     if screen_size is None:
         screen_size = compute_screen_size(scale)
+        while screen_size[0] > screen_width or screen_size[1] > screen_height:
+            scale -= 1
+            screen_size = compute_screen_size(scale)
 
     screen = pygame.display.set_mode(screen_size)
     pygame.display.set_caption("Sprite Viewer")
